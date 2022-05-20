@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BOARD)
 #setup output pins
 GPIO.setup(24, GPIO.OUT)
 GPIO.setup(26, GPIO.OUT)
-GPIO.setup(28, GPIO.OUT)
+GPIO.setup(29, GPIO.OUT)
 GPIO.setup(32, GPIO.OUT)
 GPIO.setup(36, GPIO.OUT)
 GPIO.setup(38, GPIO.OUT)
