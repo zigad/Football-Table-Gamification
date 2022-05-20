@@ -6,13 +6,13 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 
 #setup output pins
-GPIO.setup(24, GPIO.OUT)      //GPIO8
-GPIO.setup(26, GPIO.OUT)      //GPIO7
-GPIO.setup(28, GPIO.OUT)      //GPIO1
-GPIO.setup(32, GPIO.OUT)      //GPIO12
-GPIO.setup(36, GPIO.OUT)      //GPIO16
-GPIO.setup(38, GPIO.OUT)      //GPIO20
-GPIO.setup(40, GPIO.OUT)      //GPIO21
+GPIO.setup(24, GPIO.OUT)
+GPIO.setup(26, GPIO.OUT)
+GPIO.setup(28, GPIO.OUT)
+GPIO.setup(32, GPIO.OUT)
+GPIO.setup(36, GPIO.OUT)
+GPIO.setup(38, GPIO.OUT)
+GPIO.setup(40, GPIO.OUT)
 
 #define 7 segment digits
 digitclr=[1,1,1,1,1,1,1]
