@@ -13,7 +13,7 @@ def break_beam_callback_2(channel):
 
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(BEAM_PIN_1, GPIO.OUT, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(BEAM_PIN_1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(BEAM_PIN_2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 GPIO.add_event_detect(BEAM_PIN_1, GPIO.BOTH, callback=break_beam_callback_1)
