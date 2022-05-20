@@ -1,9 +1,12 @@
-import RPi.GPIO as IO
-import time 
+import RPi.GPIO as IO            # calling for header file which helps us use GPIO’s of PI
 
-DISPLAY = [0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67] 
-IO.setwarnings(False)
-IO.setmode (IO.BCM)
+import time                              # calling for time to provide delays in program
+
+DISPLAY = [0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67]            # string of characters storing PORT values for each digit.
+
+IO.setwarnings(False)            # do not show any warnings
+
+IO.setmode (IO.BCM)           # programming the GPIO by BCM pin numbers. (like PIN29 as‘GPIO5’)
 
 IO.setup(38, IO.OUT)
 IO.setup(24, IO.OUT)
@@ -13,17 +16,24 @@ IO.setup(36, IO.OUT)
 IO.setup(26, IO.OUT)
 IO.setup(18, IO.OUT)
 
-def PORT(pin):
+def PORT(pin):                    # assigning GPIO logic by taking 'pin' value
+
     if(pin&0x01 == 0x01):
-        IO.output(13,1) 
+
+        IO.output(13,1)            # if  bit0 of 8bit 'pin' is true, pull PIN13 high
+
     else:
-        IO.output(13,0)
+
+        IO.output(13,0)            # if  bit0 of 8bit 'pin' is false, pull PIN13 low
+
     if(pin&0x02 == 0x02):
 
-        IO.output(6,1)
+        IO.output(6,1)             # if  bit1 of 8bit 'pin' is true, pull PIN6 high
+
     else:
 
-        IO.output(6,0)
+        IO.output(6,0)            #if  bit1 of 8bit 'pin' is false, pull PIN6 low
+
     if(pin&0x04 == 0x04):
 
         IO.output(16,1)
@@ -66,15 +76,20 @@ def PORT(pin):
 
     if(pin&0x80 == 0x80):
 
-        IO.output(12,1)
+        IO.output(12,1)            # if  bit7 of 8bit 'pin' is true, pull PIN12 high
+
     else:
 
-        IO.output(12,0)
+        IO.output(12,0)            # if  bit7 of 8bit 'pin' is false, pull PIN12 low
+
         
 
 while 1:
 
-    for x in range(10):
-        pin = DISPLAY[x]
-        PORT(pin)
+    for x in range(10):            # execute the loop ten times incrementing x value from zero to nine
+
+        pin = DISPLAY[x]        # assigning value to 'pin' for each digit
+
+        PORT(pin);                  # showing each digit on display 
+
         time.sleep(1)
