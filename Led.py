@@ -15,17 +15,17 @@ GPIO.setup(26, GPIO.OUT)
 GPIO.setup(18, GPIO.OUT)
 
 #define 7 segment digits
-digitclr=[1,1,1,1,1,1,1]
-digit0=[0,0,0,0,0,0,1]
-digit1=[1,0,0,1,1,1,1]
-digit2=[0,0,1,0,0,1,0]
-digit3=[0,0,0,0,1,1,0]
-digit4=[1,0,0,1,1,0,0]
-digit5=[0,1,0,0,1,0,0]
-digit6=[0,1,0,0,0,0,0,]
-digit7=[0,0,0,1,1,1,1]
-digit8=[0,0,0,0,0,0,0]
-digit9=[0,0,0,1,1,0,0,]
+digitclr=[0,0,0,0,0,0,0]
+digit0=[1,1,1,1,1,1,0]
+digit1=[0,1,1,0,0,0,0]
+digit2=[1,1,0,1,1,0,1]
+digit3=[1,1,1,1,0,0,1]
+digit4=[0,1,1,0,0,1,1]
+digit5=[1,0,1,1,0,1,1]
+digit6=[1,0,1,1,1,1,1,]
+digit7=[1,1,1,0,0,0,0]
+digit8=[1,1,1,1,1,1,1]
+digit9=[1,1,1,0,0,1,1,]
 gpin=[38,24,40,32,36,26,18]
 #routine to clear and then write to display
 def digdisp(digit):
