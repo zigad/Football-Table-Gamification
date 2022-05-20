@@ -26,7 +26,7 @@ digit6=[0,1,0,0,0,0,0,]
 digit7=[0,0,0,1,1,1,1]
 digit8=[0,0,0,0,0,0,0]
 digit9=[0,0,0,1,1,0,0,]
-gpin=[35,12,36,33,32,38,40]
+gpin=[24,26,29,32,36,38,40]
 #routine to clear and then write to display
 def digdisp(digit):
     for x in range (0,7):
