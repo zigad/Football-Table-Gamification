@@ -12,8 +12,10 @@ display_obj_team_1 = []
 display_obj_team_2 = []
 
 
-BeamPin1 = machine.Pin(28, machine.Pin.IN)
-BeamPin2 = machine.Pin(27, machine.Pin.IN)
+BeamPin1 = machine.Pin(6, Pin.IN, Pin.PULL_UP)
+BeamPin2 = machine.Pin(5, Pin.IN, Pin.PULL_UP)
+
+ButtonTeam1 = machine.Pin(0, Pin.IN, Pin.PULL_DOWN)
 
 # Set all pins as output
 for seg1 in display_list_1:
@@ -67,25 +69,45 @@ def resetGame():
     SegDisplayTeam1(str(0))
     SegDisplayTeam2(str(0))
 
-def break_beam_callback_1(pin):
+def break_beam_callback(pin):
     if pin is BeamPin1:
+        BeamPin1.irq(handler=None)
         global score_team_1
         score_team_1 = score_team_1 + 1
         if score_team_1 == 10:
             resetGame()
         SegDisplayTeam1(str(score_team_1))
         print("Team 1 Goal!")
-    
+        time.sleep(2)
+        BeamPin1.irq(trigger=Pin.IRQ_RISING, handler=break_beam_callback)
+        
     if pin is BeamPin2:
+        BeamPin2.irq(handler=None)
         global score_team_2
         score_team_2 = score_team_2 + 1
         if score_team_2 == 10:
             resetGame()
         SegDisplayTeam2(str(score_team_2))
         print("Team 2 Goal!")
+        time.sleep(2)
+        BeamPin2.irq(trigger=Pin.IRQ_RISING, handler=break_beam_callback)
+        
+def button_press_callback(pin):
+    if pin is ButtonTeam1:
+        ButtonTeam1.irq(handler=None)
+        global score_team_1
+        print("Add Score Team 1")
+        score_team_1 = score_team_1 + 1
+        if score_team_1 == 10:
+            resetGame()
+        SegDisplayTeam1(str(score_team_1))
+        time.sleep(1)
+        ButtonTeam1.irq(trigger=Pin.IRQ_RISING, handler=button_press_callback)
+    
         
 SegDisplayTeam1(str(0))
 SegDisplayTeam2(str(0))
 
-BeamPin1.irq(trigger=Pin.IRQ_RISING, handler=break_beam_callback_1)
-BeamPin2.irq(trigger=Pin.IRQ_RISING, handler=break_beam_callback_1)
+BeamPin1.irq(trigger=Pin.IRQ_RISING, handler=break_beam_callback)
+BeamPin2.irq(trigger=Pin.IRQ_RISING, handler=break_beam_callback)
+#ButtonTeam1.irq(trigger=Pin.IRQ_RISING, handler=button_press_callback)
