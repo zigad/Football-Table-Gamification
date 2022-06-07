@@ -29,4 +29,20 @@ Please note that wiring can differ for your 7 segment display, please check wiri
 
 ## Wiring Diagram
 
-![Football-Table-Gamification-Wiring-Schema](/Football-Table-Gamification-Wiring-Schema.png)
+![Football-Table-Gamification-Wiring-Schema](/Images/Football-Table-Gamification-Wiring-Schema.png)
+
+## Building the table
+
+Step 1: Find a place for sensors
+![IR Sensors 1](/Images/IMG_1622.jpeg)
+
+Step 2: Secure sensors with tape/screw
+![IR Sensors 2](/Images/IMG_1634.jpeg)
+
+Step 3: Secure everything in place
+![IR Sensors 3](/Images/IMG_1624.jpeg)
+
+Step 4: Wire everything up and secure all of the cables.
+![Wiring](/Images/IMG_1651.jpeg)
+
+
