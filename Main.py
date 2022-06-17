@@ -11,22 +11,19 @@ dotPin2=11
 display_obj_team_1 = []
 display_obj_team_2 = []
 
-
 BeamPin1 = machine.Pin(6, Pin.IN, Pin.PULL_UP)
 BeamPin2 = machine.Pin(5, Pin.IN, Pin.PULL_UP)
 
 ButtonTeam1 = machine.Pin(0, Pin.IN, Pin.PULL_DOWN)
 
 # Set all pins as output
-for seg1 in display_list_1:
-    display_obj_team_1.append(Pin(seg1, Pin.OUT))
-
+for seg in display_list_1:
+    display_obj_team_1.append(Pin(seg, Pin.OUT))
 dot_obj1=Pin(dotPin1, Pin.OUT)
 
 # Set all pins as output
-for seg2 in display_list_2:
-    display_obj_team_2.append(Pin(seg2, Pin.OUT))
-
+for seg in display_list_2:
+    display_obj_team_2.append(Pin(seg, Pin.OUT))
 dot_obj2=Pin(dotPin2, Pin.OUT)
 
 # DIGIT map as array of array
